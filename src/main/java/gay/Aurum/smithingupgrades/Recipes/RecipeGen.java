@@ -1,8 +1,7 @@
-package gay.Aurum.SmithingUpgradesFabric.Recipes;
+package gay.Aurum.smithingupgrades.Recipes;
 
-import net.minecraft.util.Identifier;
-import static gay.Aurum.SmithingUpgradesFabric.Recipes.Materials.MATERIAL_MAP;
-import static gay.Aurum.SmithingUpgradesFabric.Recipes.RecipeHelper.addSmithingRecipe;
+import static gay.Aurum.smithingupgrades.Recipes.Materials.MATERIAL_MAP;
+import static gay.Aurum.smithingupgrades.Recipes.RecipeHelper.addSmithingRecipe;
 
 public class RecipeGen {
 
@@ -17,7 +16,7 @@ public class RecipeGen {
                         Materials.MaterialInfo mat2 = MATERIAL_MAP.get(matId2);
 
                         if (mat2.getEquipment().get(type) != null) {
-                            addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type));
+                            addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag());
                         }
                     }
                 }

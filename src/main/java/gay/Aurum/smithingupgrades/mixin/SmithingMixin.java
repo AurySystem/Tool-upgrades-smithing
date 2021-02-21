@@ -1,4 +1,4 @@
-package gay.Aurum.SmithingUpgradesFabric.mixin;
+package gay.Aurum.smithingupgrades.mixin;
 
 
 import com.google.gson.JsonElement;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-import static gay.Aurum.SmithingUpgradesFabric.Recipes.RecipeHelper.SMITHING_MAP;
+import static gay.Aurum.smithingupgrades.Recipes.RecipeHelper.SMITHING_MAP;
 
 @Mixin(RecipeManager.class)
 public class SmithingMixin {

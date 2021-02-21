@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "smithingupgrades",
   "version": "${version}",
 
   "name": "Smithing Table Upgrades",
-  "description": "Wraps a data pack that adds smithing table upgrade recipes for tools and armor",
+  "description": "Generates recipes for the smithing table to upgrade tools and armor freely up to diamond",
   "authors": [
     "AurySystem"
   ],
@@ -14,16 +14,16 @@
   },
 
   "license": "MIT",
-  "icon": "assets/SmithingUpgradesFabric/icon.png",
+  "icon": "assets/smithingupgrades/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "gay.Aurum.SmithingUpgradesFabric.SmithingUpgradesFabric"
+      "gay.Aurum.smithingupgrades.SmithingUpgrades"
     ]
   },
   "mixins": [
-    "SmithingUpgradesFabric.mixins.json"
+    "smithingupgrades.mixins.json"
   ],
 
   "depends": {
@@ -32,6 +32,5 @@
     "minecraft": "1.16.x"
   },
   "suggests": {
-    "another-mod": "*"
   }
 }
