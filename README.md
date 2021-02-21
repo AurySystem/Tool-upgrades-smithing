@@ -1,9 +1,6 @@
-# Fabric Example Mod
-
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+# Smithing Tool Upgrades
+This mod generates recipes for the smithing table to change any tool to the specicfided material, or it will when we're done.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+this mod is under the MIT lience, it's started from the the example mod as a base
