@@ -26,7 +26,7 @@ public class Materials {
         MATERIAL_MAP.get("Stone").addEquipment("shovel+early", new Identifier("stone_shovel"));
         MATERIAL_MAP.get("Stone").addEquipment("hoe+early", new Identifier("stone_hoe"));
 
-        addMaterial("Leather", new Identifier("minecraft","stone_tool_materials"), false);
+        addMaterial("Leather", new Identifier("leather"), true);
         MATERIAL_MAP.get("Leather").addEquipment("helmet+early", new Identifier("leather_helmet"));
         MATERIAL_MAP.get("Leather").addEquipment("chestplate+early", new Identifier("leather_chestplate"));
         MATERIAL_MAP.get("Leather").addEquipment("leggings+early", new Identifier("leather_leggings"));
