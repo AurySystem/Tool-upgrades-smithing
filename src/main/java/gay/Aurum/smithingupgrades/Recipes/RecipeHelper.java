@@ -32,6 +32,7 @@ public class RecipeHelper {
         result.addProperty("item", output.toString());
         recipe.add("result", result);
 
+        System.out.println(recipe.toString());
         return recipe;
     }
 
