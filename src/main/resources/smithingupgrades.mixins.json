@@ -4,9 +4,7 @@
   "package": "gay.Aurum.smithingupgrades.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-  ],
-  "client": [
-    "SmithingMixin"
+    "RecipeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

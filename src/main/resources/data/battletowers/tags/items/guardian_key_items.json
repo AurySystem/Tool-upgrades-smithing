@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "battletowers:key_helmet",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_chestplate",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_leggings",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_boots",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_sword",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_axe",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_shovel",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_hoe",
+      "required": false
+    },
+    {
+      "id": "battletowers:key_pickaxe",
+      "required": false
+    }
+  ]
+}
