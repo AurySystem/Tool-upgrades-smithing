@@ -1,6 +1,6 @@
 {
   "item.smithingupgrades.wooden_cluster": "Wooden Plank Ball",
-  "item.smithingupgrades.stone_cluster": "Stone Cluster",
+  "item.smithingupgrades.stone_cluster": "Cobblestone Cluster",
   "item.smithingupgrades.iron_cluster": "Iron Cluster",
   "item.smithingupgrades.golden_cluster": "Golden Cluster",
   "item.smithingupgrades.diamond_cluster": "Diamond Cluster",
@@ -29,7 +29,7 @@
   "item.smithingupgrades.cubic_slime_cluster": "Cubic Slime Pile",
   "item.smithingupgrades.obsidian_cluster": "Obsidian Cluster",
   "item.smithingupgrades.prismarine_cluster": "Prismarine Cluster",
-  "item.smithingupgrades.dragonhead_cluster": "Hydra Head",
+  "item.smithingupgrades.dragon_head_cluster": "Hydra Head",
   "item.smithingupgrades.cubic_nether_ruby_cluster": "Cubic Nether Ruby Cluster",
   "item.smithingupgrades.cubic_cincinnasite_cluster": "Cubic Cincinnasite Cluster"
 }

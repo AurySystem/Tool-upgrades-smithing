@@ -21,7 +21,7 @@ public class SmithingUpgrades implements ModInitializer {
 			return "{\n" +
 					"  \"parent\": \"item/" + type + "\",\n" +
 					"  \"textures\": {\n" +
-					"    \"layer0\": item\"" + MOD_ID + ":" + id + "\"\n" +
+					"    \"layer0\": \"" + MOD_ID + ":" + id + "\"\n" +
 					"  }\n" +
 					"}";
 		}

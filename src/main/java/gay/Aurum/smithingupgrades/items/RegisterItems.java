@@ -67,7 +67,7 @@ public class RegisterItems {
             STEEL_CLUSTER = registerCluster("steel_cluster", new Item(settings), "c:steel_ingots",false);
         }
         if(FabricLoader.getInstance().isModLoaded("betternether")){
-            NETHER_RUBY_CLUSTER = registerCluster("nether_ruby_cluster", new Item(settings), "betternether:nether_ruby_ingot");
+            NETHER_RUBY_CLUSTER = registerCluster("nether_ruby_cluster", new Item(settings), "betternether:nether_ruby");
             CINCINNASITE_CLUSTER = registerCluster("cincinnasite_cluster", new Item(settings), "betternether:cincinnasite_ingot");
         }
         if(FabricLoader.getInstance().isModLoaded("battletowers")){
@@ -75,7 +75,7 @@ public class RegisterItems {
         }
         if(FabricLoader.getInstance().isModLoaded("vanilla-hammers") || FabricLoader.getInstance().isModLoaded("vanillaexcavators")){
 
-            LOG_CLUSTER = registerCluster("log_cluster", new Item(settings), "minecraft:planks", false);
+            LOG_CLUSTER = registerCluster("log_cluster", new Item(settings), "minecraft:logs", false);
             SMOOTH_STONE_CLUSTER = registerCluster("smooth_stone_cluster", new Item(settings), "stone");
             CUBIC_IRON_CLUSTER = registerCluster("cubic_iron_cluster", new Item(settings), "iron_block");
             CUBIC_GOLD_CLUSTER = registerCluster("cubic_gold_cluster", new Item(settings), "gold_block");
@@ -89,7 +89,7 @@ public class RegisterItems {
             PRISMARINE_CLUSTER = registerCluster("prismarine_cluster", new Item(settings), "prismarine");
             DRAGONHEAD_CLUSTER = registerCluster("dragon_head_cluster", new Item(settings), "dragon_head");
             if(FabricLoader.getInstance().isModLoaded("betternether")){
-                CUBIC_NETHER_RUBY_CLUSTER = registerCluster("cubic_nether_ruby_cluster", new Item(settings), "betternether:nether_ruby_Block");
+                CUBIC_NETHER_RUBY_CLUSTER = registerCluster("cubic_nether_ruby_cluster", new Item(settings), "betternether:nether_ruby_block");
                 CUBIC_CINCINNASITE_CLUSTER = registerCluster("cubic_cincinnasite_cluster", new Item(settings), "betternether:cincinnasite_forged");
             }
         }
