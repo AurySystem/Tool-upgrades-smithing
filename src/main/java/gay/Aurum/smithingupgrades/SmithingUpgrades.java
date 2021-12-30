@@ -8,25 +8,14 @@ import static gay.Aurum.smithingupgrades.recipes.RecipeGen.RecipeGen;
 
 public class SmithingUpgrades implements ModInitializer {
 	public static final String MOD_ID = "smithingupgrades";
+	public static SmithingConfigs CONFIG;
 
 	@Override
 	public void onInitialize() {
+		SmithingConfigs.init();
+		CONFIG = SmithingConfigs.load();
 		RegisterItems();
 		registerMaterials();
 		RecipeGen();
-	}
-
-	public static String createItemModelJson(String id, String type) {
-		if ("generated".equals(type) || "handheld".equals(type)) {
-			return "{\n" +
-					"  \"parent\": \"item/" + type + "\",\n" +
-					"  \"textures\": {\n" +
-					"    \"layer0\": \"" + MOD_ID + ":" + id + "\"\n" +
-					"  }\n" +
-					"}";
-		}
-		else {
-			return "";
-		}
 	}
 }

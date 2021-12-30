@@ -6,9 +6,6 @@
   "mixins": [
     "RecipeMixin"
   ],
-  "client": [
-    "ModelLoaderMixin"
-  ],
   "injectors": {
     "defaultRequire": 1
   }

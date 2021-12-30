@@ -12,11 +12,12 @@ import net.minecraft.util.registry.Registry;
 
 import java.util.Map;
 
+import static gay.Aurum.smithingupgrades.SmithingUpgrades.CONFIG;
 import static gay.Aurum.smithingupgrades.SmithingUpgrades.MOD_ID;
 
 public class RegisterItems {
     public static final Map<String, ItemMat> ITEM_MAP = Maps.newHashMap();
-    private static int defaultCount = 3;
+    private static int defaultCount = CONFIG.getDefualtCount();
 
     private static FabricItemSettings settings = new FabricItemSettings().group(ItemGroup.MATERIALS);
     public static Item WOODEN_CLUSTER = registerCluster("wooden_cluster", new Item(settings), "minecraft:planks", false);
