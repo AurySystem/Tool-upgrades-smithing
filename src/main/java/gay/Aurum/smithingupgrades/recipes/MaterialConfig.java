@@ -15,11 +15,11 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Map;
 
-import static gay.Aurum.smithingupgrades.SmithingUpgrades.MOD_ID;
 import static gay.Aurum.smithingupgrades.recipes.Materials.*;
 
 public class MaterialConfig {
-    public static final Path MAT_FOLDER = FileSystems.getDefault().getPath("config","material/");
+    public static final Path MOD_FOLDER = FileSystems.getDefault().getPath("config","toolsmithingupgrades/");
+    public static final Path MAT_FOLDER = FileSystems.getDefault().getPath("config","toolsmithingupgrades/material/");
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
@@ -111,11 +111,14 @@ public class MaterialConfig {
     }
 
     public static void save(MaterialInfo mat) throws IOException {
+        if(!Files.exists(MOD_FOLDER)) {
+            Files.createDirectory(MOD_FOLDER);
+        }
         if(!Files.exists(MAT_FOLDER)) {
             Files.createDirectory(MAT_FOLDER);
         }
         JsonObject jsn = serialize(mat);
-        Path path = FileSystems.getDefault().getPath("config", "material/"+mat.getName()+".json");
+        Path path = FileSystems.getDefault().getPath("config", "toolsmithingupgrades/material/"+mat.getName()+".json");
         try (BufferedWriter config = Files.newBufferedWriter(path, StandardOpenOption.CREATE);) {
             JsonWriter writer = GSON.newJsonWriter(config);
             GSON.toJson(jsn, writer);
