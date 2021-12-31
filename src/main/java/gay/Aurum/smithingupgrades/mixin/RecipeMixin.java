@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
-import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.SHAPELSS_MAP;
 import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.SMITHING_MAP;
 
 @Mixin(RecipeManager.class)
@@ -22,6 +21,5 @@ public class RecipeMixin {
 	@Inject(method = "apply", at = @At("HEAD"))
 	public void interceptApply(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
 		map.putAll(SMITHING_MAP);
-		map.putAll(SHAPELSS_MAP);
 	}
 }

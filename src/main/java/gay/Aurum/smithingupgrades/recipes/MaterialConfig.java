@@ -2,6 +2,7 @@ package gay.Aurum.smithingupgrades.recipes;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
+import gay.Aurum.smithingupgrades.SmithingUpgrades;
 import net.minecraft.util.Identifier;
 
 import java.io.BufferedReader;
@@ -23,7 +24,7 @@ public class MaterialConfig {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
     public static void generate(){
-        MaterialInfo wood = addMaterial("Wood", MOD_ID+":wooden_cluster");
+        MaterialInfo wood = addMaterial("Wood", "planks",false);
         wood.setOutList(new String[] {"Stone","Iron"}, true);
         wood.addEquipment("sword", "wooden_sword");
         wood.addEquipment("sword", "wooden_sword");
@@ -32,81 +33,79 @@ public class MaterialConfig {
         wood.addEquipment("shovel", "wooden_shovel");
         wood.addEquipment("hoe", "wooden_hoe");
 
-        MaterialInfo stone = addMaterial("Stone", MOD_ID+":stone_cluster");
-        setMaterialList("Stone", new String[] {"Wood","Iron"}, true,true);
-        addEquipment("Stone","sword", "stone_sword");
-        addEquipment("Stone","axe", "stone_axe");
-        addEquipment("Stone","pickaxe", "stone_pickaxe");
-        addEquipment("Stone","shovel", "stone_shovel");
-        addEquipment("Stone","hoe", "stone_hoe");
+        MaterialInfo stone = addMaterial("Stone", "stone_tool_materials",false);
+        stone.setOutList(new String[] {"Wood","Iron"}, true);
+        stone.addEquipment("sword", "stone_sword");
+        stone.addEquipment("axe", "stone_axe");
+        stone.addEquipment("pickaxe", "stone_pickaxe");
+        stone.addEquipment("shovel", "stone_shovel");
+        stone.addEquipment("hoe", "stone_hoe");
 
-        MaterialInfo Leather = addMaterial("Leather", "leather");
-        setMaterialList("Leather", new String[] {"Iron","Iron_Block"}, true, true);
-        addEquipment("Leather","helmet", "leather_helmet");
-        addEquipment("Leather","chestplate", "leather_chestplate");
-        addEquipment("Leather","leggings", "leather_leggings");
-        addEquipment("Leather","boots", "leather_boots");
-        addEquipment("Leather","horsearmor+via_iron", "leather_horse_armor");
+        MaterialInfo leather = addMaterial("Leather", "leather");
+        leather.setOutList(new String[] {"Iron"}, true);
+        leather.addEquipment("helmet", "leather_helmet");
+        leather.addEquipment("chestplate", "leather_chestplate");
+        leather.addEquipment("leggings", "leather_leggings");
+        leather.addEquipment("boots", "leather_boots");
+        leather.addEquipment("horsearmor", "leather_horse_armor");
 
-        MaterialInfo Iron = addMaterial("Iron", MOD_ID+":iron_cluster");
-        addEquipment("Iron","sword", "iron_sword");
-        addEquipment("Iron","axe", "iron_axe");
-        addEquipment("Iron","pickaxe", "iron_pickaxe");
-        addEquipment("Iron","shovel", "iron_shovel");
-        addEquipment("Iron","hoe", "iron_hoe");
+        MaterialInfo iron = addMaterial("Iron", "iron_block");
+        iron.addEquipment("sword", "iron_sword");
+        iron.addEquipment("axe", "iron_axe");
+        iron.addEquipment("pickaxe", "iron_pickaxe");
+        iron.addEquipment("shovel", "iron_shovel");
+        iron.addEquipment("hoe", "iron_hoe");
 
-        addEquipment("Iron","helmet", "iron_helmet");
-        addEquipment("Iron","chestplate", "iron_chestplate");
-        addEquipment("Iron","leggings", "iron_leggings");
-        addEquipment("Iron","boots", "iron_boots");
-        addEquipment("Iron","horsearmor", "iron_horse_armor");
+        iron.addEquipment("helmet", "iron_helmet");
+        iron.addEquipment("chestplate", "iron_chestplate");
+        iron.addEquipment("leggings", "iron_leggings");
+        iron.addEquipment("boots", "iron_boots");
+        iron.addEquipment("horsearmor", "iron_horse_armor");
 
-        MaterialInfo Iron_Block = addMaterial("Iron_Block", MOD_ID+":cubic_iron_cluster");
-        addEquipment("Iron_Block","horsearmor+via_iron", "iron_horse_armor");
+        MaterialInfo gold = addMaterial("Gold", "gold_block");
+        gold.addEquipment("sword", "golden_sword");
+        gold.addEquipment("axe", "golden_axe");
+        gold.addEquipment("pickaxe", "golden_pickaxe");
+        gold.addEquipment("shovel", "golden_shovel");
+        gold.addEquipment("hoe", "golden_hoe");
 
-        MaterialInfo Gold = addMaterial("Gold", MOD_ID+":golden_cluster");
-        addEquipment("Gold","sword", "golden_sword");
-        addEquipment("Gold","axe", "golden_axe");
-        addEquipment("Gold","pickaxe", "golden_pickaxe");
-        addEquipment("Gold","shovel", "golden_shovel");
-        addEquipment("Gold","hoe", "golden_hoe");
+        gold.addEquipment("helmet", "golden_helmet");
+        gold.addEquipment("chestplate", "golden_chestplate");
+        gold.addEquipment("leggings", "golden_leggings");
+        gold.addEquipment("boots", "golden_boots");
+        gold.addEquipment("horsearmor", "golden_horse_armor");
 
-        addEquipment("Gold","helmet", "golden_helmet");
-        addEquipment("Gold","chestplate", "golden_chestplate");
-        addEquipment("Gold","leggings", "golden_leggings");
-        addEquipment("Gold","boots", "golden_boots");
-        addEquipment("Gold","horsearmor", "golden_horse_armor");
+        MaterialInfo diamond = addMaterial("Diamond", "diamond_block");
+        diamond.setOutList(new String[] {"Netherite"}, false);
+        diamond.setInList(new String[] {"Wood"}, false);
+        diamond.addEquipment("sword", "diamond_sword");
+        diamond.addEquipment("axe", "diamond_axe");
+        diamond.addEquipment("pickaxe", "diamond_pickaxe");
+        diamond.addEquipment("shovel", "diamond_shovel");
+        diamond.addEquipment("hoe", "diamond_hoe");
 
-        MaterialInfo Diamond = addMaterial("Diamond", MOD_ID+":diamond_cluster");
-        setMaterialList("Diamond", new String[] {"Netherite"}, false, true);
-        setMaterialList("Diamond", new String[] {"Wood"}, false, false);
-        addEquipment("Diamond","sword", "diamond_sword");
-        addEquipment("Diamond","axe", "diamond_axe");
-        addEquipment("Diamond","pickaxe", "diamond_pickaxe");
-        addEquipment("Diamond","shovel", "diamond_shovel");
-        addEquipment("Diamond","hoe", "diamond_hoe");
+        diamond.addEquipment("helmet", "diamond_helmet");
+        diamond.addEquipment("chestplate", "diamond_chestplate");
+        diamond.addEquipment("leggings", "diamond_leggings");
+        diamond.addEquipment("boots", "diamond_boots");
+        diamond.addEquipment("horsearmor", "diamond_horse_armor");
 
-        addEquipment("Diamond","helmet", "diamond_helmet");
-        addEquipment("Diamond","chestplate", "diamond_chestplate");
-        addEquipment("Diamond","leggings", "diamond_leggings");
-        addEquipment("Diamond","boots", "diamond_boots");
-        addEquipment("Diamond","horsearmor", "diamond_horse_armor");
+        MaterialInfo netherite = addMaterial("Netherite", "netherite_ingot");
+        netherite.setInList( new String[] {"Diamond"}, true);
+        netherite.addEquipment("sword", "netherite_sword");
+        netherite.addEquipment("axe", "netherite_axe");
+        netherite.addEquipment("pickaxe", "netherite_pickaxe");
+        netherite.addEquipment("shovel", "netherite_shovel");
+        netherite.addEquipment("hoe", "netherite_hoe");
 
-        MaterialInfo Netherite = addMaterial("Netherite", "netherite_ingot");
-        setMaterialList("Netherite", new String[] {"Diamond"}, true, false);
-        addEquipment("Netherite","sword", "netherite_sword");
-        addEquipment("Netherite","axe", "netherite_axe");
-        addEquipment("Netherite","pickaxe", "netherite_pickaxe");
-        addEquipment("Netherite","shovel", "netherite_shovel");
-        addEquipment("Netherite","hoe", "netherite_hoe");
+        netherite.addEquipment("helmet", "netherite_helmet");
+        netherite.addEquipment("chestplate", "netherite_chestplate");
+        netherite.addEquipment("leggings", "netherite_leggings");
+        netherite.addEquipment("boots", "netherite_boots");
 
-        addEquipment("Netherite","helmet", "netherite_helmet");
-        addEquipment("Netherite","chestplate", "netherite_chestplate");
-        addEquipment("Netherite","leggings", "netherite_leggings");
-        addEquipment("Netherite","boots", "netherite_boots");
         for (MaterialInfo mat:MATERIAL_MAP.values()){
             try{save(mat);} catch (IOException e) {
-                e.printStackTrace();
+                SmithingUpgrades.logger(e.toString()+" Error saving material: " + mat.getName());
             }
         }
     }
@@ -122,7 +121,7 @@ public class MaterialConfig {
             GSON.toJson(jsn, writer);
             return;
         } catch (IOException e) {
-            e.printStackTrace();
+            SmithingUpgrades.logger(e.toString()+" Error saving material: " + mat.getName());
             return;
         }
     }
@@ -144,7 +143,7 @@ public class MaterialConfig {
                hasFiles = true;
           }
             catch (IOException e) {
-              e.printStackTrace();
+                SmithingUpgrades.logger(e.toString()+" Error loading material: " + file.getName());
             }
         }
         if(!hasFiles){

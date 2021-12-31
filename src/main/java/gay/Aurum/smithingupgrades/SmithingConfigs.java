@@ -49,7 +49,7 @@ public class SmithingConfigs {
             JsonWriter writer = gson.newJsonWriter(config);
             gson.toJson(jsn,writer);
         } catch (IOException e) {
-            e.printStackTrace();
+            SmithingUpgrades.logger(e.toString()+" Error saving config");
         }
     }
 
@@ -66,7 +66,7 @@ public class SmithingConfigs {
             save(temp);
             return temp;
         } catch (IOException e) {
-            e.printStackTrace();
+            SmithingUpgrades.logger(e.toString()+" Error loading config");
             return new SmithingConfigs();
         }
     }
@@ -98,21 +98,21 @@ public class SmithingConfigs {
                     try {
                         bools.put(entry.getKey(),val.getAsBoolean());
                     }catch (ClassCastException e){
-                        e.printStackTrace();
+                        SmithingUpgrades.logger(e.toString()+" Config entry '"+entry.getKey()+"' expected boolean");
                     }
                     break;
                 case ("string"):
                     try {
                         strs.put(entry.getKey(),val.getAsString());
                     }catch (ClassCastException e){
-                        e.printStackTrace();
+                        SmithingUpgrades.logger(e.toString()+" Config entry '"+entry.getKey()+"' expected string");
                     }
                     break;
                 case ("int"):
                     try {
                         nums.put(entry.getKey(),val.getAsInt());
                     }catch (ClassCastException e){
-                        e.printStackTrace();
+                        SmithingUpgrades.logger(e.toString()+" Config entry '"+entry.getKey()+ "'  expected int");
                     }
                     break;
                 default:

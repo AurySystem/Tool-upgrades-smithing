@@ -2,7 +2,6 @@ package gay.Aurum.smithingupgrades;
 
 import net.fabricmc.api.ModInitializer;
 
-import static gay.Aurum.smithingupgrades.items.RegisterItems.RegisterItems;
 import static gay.Aurum.smithingupgrades.recipes.Materials.registerMaterials;
 import static gay.Aurum.smithingupgrades.recipes.RecipeGen.RecipeGen;
 
@@ -14,8 +13,11 @@ public class SmithingUpgrades implements ModInitializer {
 	public void onInitialize() {
 		SmithingConfigs.init();
 		CONFIG = SmithingConfigs.load();
-		RegisterItems();
 		registerMaterials();
 		RecipeGen();
 	}
+	public static void logger(String s){
+		System.out.print(MOD_ID+": "+s);
+	}
+
 }
