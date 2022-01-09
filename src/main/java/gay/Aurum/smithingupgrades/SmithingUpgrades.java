@@ -17,7 +17,7 @@ public class SmithingUpgrades implements ModInitializer {
 		RecipeGen();
 	}
 	public static void logger(String s){
-		System.out.print(MOD_ID+": "+s);
+		System.out.println(MOD_ID+": "+s);
 	}
 
 }

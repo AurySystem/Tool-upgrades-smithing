@@ -34,6 +34,8 @@ public class RecipeHelper {
         result.addProperty("item", output.toString());
         recipe.add("result", result);
 
+        recipe.addProperty("additioncount", 3);
+
         return recipe;
     }
 
