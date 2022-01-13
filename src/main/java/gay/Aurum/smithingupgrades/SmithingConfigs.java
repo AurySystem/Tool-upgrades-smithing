@@ -13,33 +13,30 @@ import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * uhm what the fuck is this config deserializer
+ * seriously this is some weird ass shit
+ */
 public class SmithingConfigs {
     public static final Path CONFIG_FILE = FileSystems.getDefault().getPath("config","ToolSmithing.json");
 
     private static final Map<String,String> CONFIGKEYS = new HashMap<>();
-    private int defualtCount;
 
-    private boolean debug;
+    private boolean requiresCustomClient;
     SmithingConfigs(){
-        this.debug = true;
-        this.defualtCount = 2;
+        this.requiresCustomClient = false;
     }
 
-    SmithingConfigs(boolean debug,int defualtCount){
-        this.debug = debug;
-        this.defualtCount = defualtCount;
+    SmithingConfigs(boolean requiresCustomClient){
+        this.requiresCustomClient = requiresCustomClient;
     }
 
     public static void init(){
-        CONFIGKEYS.put("debug","bool");
-        CONFIGKEYS.put("defualtCount","int");
+        CONFIGKEYS.put("requiresCustomClient","bool");
     }
 
-    public boolean getDebug(){
-        return this.debug;
-    }
-    public int getDefualtCount(){
-        return this.defualtCount;
+    public boolean getRequiresCustomClient(){
+        return this.requiresCustomClient;
     }
 
     public static void save(SmithingConfigs changes){
@@ -118,15 +115,13 @@ public class SmithingConfigs {
                 default:
             }
         }
-        return new SmithingConfigs(bools.get("debug"),
-                nums.get("defualtCount")
+        return new SmithingConfigs(bools.get("requiresCustomClient")
         );
     }
 
     private static JsonObject serialize(SmithingConfigs fig){
         JsonObject obj = new JsonObject();
-        obj.addProperty("debug", fig.debug);
-        obj.addProperty("defualtCount", fig.defualtCount);
+        obj.addProperty("requiresCustomClient", fig.requiresCustomClient);
         return obj;
     }
 }

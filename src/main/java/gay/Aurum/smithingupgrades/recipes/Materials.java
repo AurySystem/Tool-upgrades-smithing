@@ -10,11 +10,8 @@ import java.util.Map;
 
 import static gay.Aurum.smithingupgrades.SmithingUpgrades.MOD_ID;
 
-//todo make this load from json instead
-//diamond to netherite already exists and not going to let people skip to it for balance sake
-//or skip from wood and stone to diamond without going through iron, might change for modded material entry later
-/*added an exclusion inclusion list option to stop this weird tagging system from getting out of hand.
-the tagging for material groups is still there partially for special cases where things need to have certain items upgrade with a different item
+/**
+ * Holds the material Map, materialInfo, and methods for adding and modifying
  */
 public class Materials {
     public static final Map<String, MaterialInfo> MATERIAL_MAP = Maps.newHashMap();
@@ -23,8 +20,8 @@ public class Materials {
         MaterialConfig.load();
     }
 
-    public static MaterialInfo addMaterial(String name, String upgrade, boolean isItem){
-        MaterialInfo info = new MaterialInfo(upgrade, isItem, name);
+    public static MaterialInfo addMaterial(String name, String upgrade, boolean isItem, int upgradeCount){
+        MaterialInfo info = new MaterialInfo(upgrade, isItem, name, upgradeCount);
         if (MATERIAL_MAP.get(name) == null) {
             MATERIAL_MAP.put(name, info);
         }else {
@@ -33,8 +30,14 @@ public class Materials {
         return info;
     }
 
+    public static MaterialInfo addMaterial(String name, String upgrade, int upgradeCount){
+        return addMaterial(name, upgrade, true, upgradeCount);
+    }
     public static MaterialInfo addMaterial(String name, String upgrade){
-        return addMaterial(name, upgrade, true);
+        return addMaterial(name, upgrade, 1);
+    }
+    public static MaterialInfo addMaterial(String name, String upgrade, boolean isItem){
+        return addMaterial(name, upgrade, isItem,1);
     }
 
     public static MaterialInfo addMaterial(String name){
@@ -70,22 +73,23 @@ public class Materials {
     public static class MaterialInfo{
         private String name;
         private Map<String, Identifier> equipment;
+        private Map<String, Integer> perEquipmentCount;
         private MaterialsList materialsListOut;
         private MaterialsList materialsListIn;
         private Identifier mainMatItem;
+        private int matCount;
         private boolean isItem;
         private boolean noItems;
 
         public MaterialInfo( Identifier mainMatItem, boolean isItem, String name){
-            this.name = name;
-            this.mainMatItem = mainMatItem;
-            this.equipment = Maps.newHashMap();
-            this.materialsListOut = new MaterialsList(true);
-            this.materialsListIn = new MaterialsList(false);
-            this.isItem = isItem;
+            this(mainMatItem,isItem,name,1);
         }
 
-        public MaterialInfo( String mainMatItem, boolean isItem, String name){
+        public MaterialInfo( Identifier mainMatItem, boolean isItem, String name, int matCount){
+            this(mainMatItem.toString(),isItem,name,matCount);
+        }
+
+        public MaterialInfo( String mainMatItem, boolean isItem, String name, int matCount){
             this.name = name;
             this.mainMatItem = Identifier.tryParse(mainMatItem);
             this.isItem = isItem;
@@ -96,7 +100,9 @@ public class Materials {
             this.equipment = Maps.newHashMap();
             this.materialsListOut = new MaterialsList(true);
             this.materialsListIn = new MaterialsList(false);
+            this.matCount = matCount;
         }
+
         public MaterialInfo(String name){
             this.name = name;
             this.equipment = Maps.newHashMap();
@@ -114,17 +120,33 @@ public class Materials {
             Identifier parse = Identifier.tryParse(item);
             if(parse != null) {
                 this.equipment.put(type, parse);
-            }else{
-
             }
         }
 
+        protected void removeEquipment(String type){
+            this.equipment.remove(type);
+        }
+
+        protected void addEquipmentCount(String type, int a){
+            this.perEquipmentCount.put(type, a);
+        }
+        protected void removeEquipmentCount(String type){
+            this.perEquipmentCount.remove(type);
+        }
+
+        protected Map<String, Integer> getPerEquipmentCount(){
+            return this.perEquipmentCount;
+        }
         protected Map<String, Identifier> getEquipment(){
             return this.equipment;
         }
 
         protected Identifier getMatItem(){
             return this.mainMatItem;
+        }
+
+        protected int getMatCount(){
+            return this.matCount;
         }
 
         protected String getName(){
@@ -161,6 +183,15 @@ public class Materials {
                 this.materialsListIn.addToList(entry);
             }
         }
+
+        protected void removeFromList(String entry, boolean listDirection){
+            if(listDirection){
+                this.materialsListOut.removeFromList(entry);
+            }else {
+                this.materialsListIn.removeFromList(entry);
+            }
+        }
+
         protected MaterialsList getOutList(){
             return this.materialsListOut;
         }
@@ -190,8 +221,8 @@ public class Materials {
             this.materialsList.add(entry);
         }
 
-        protected boolean isListOut(){
-            return this.listDirection;
+        protected void removeFromList(String entry){
+            this.materialsList.remove(entry);
         }
 
         protected boolean contains(String o){

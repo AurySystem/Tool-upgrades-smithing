@@ -13,12 +13,12 @@ import static gay.Aurum.smithingupgrades.SmithingUpgrades.MOD_ID;
 public class RecipeHelper {
     public static final Map<Identifier, JsonObject> SMITHING_MAP = Maps.newHashMap();
 
-    public static void addSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem){
-        SMITHING_MAP.put( new Identifier(MOD_ID, input.getPath()+"_"+upgrade.getPath()), createSmithingRecipe(input, upgrade, output, isItem));
+    public static void addSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem, int additionCount){
+        SMITHING_MAP.put( new Identifier(MOD_ID, input.getPath()+"_"+upgrade.getPath()), createSmithingRecipe(input, upgrade, output, isItem,additionCount));
     }
 
 
-    private static JsonObject createSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem){
+    private static JsonObject createSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem,int additionCount){
         JsonObject recipe = new JsonObject();
         recipe.addProperty("type","minecraft:smithing");
 

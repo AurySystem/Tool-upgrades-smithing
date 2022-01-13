@@ -7,12 +7,11 @@ import static gay.Aurum.smithingupgrades.recipes.RecipeGen.RecipeGen;
 
 public class SmithingUpgrades implements ModInitializer {
 	public static final String MOD_ID = "smithingupgrades";
-	public static SmithingConfigs CONFIG;
+	public static SmithingConfigs CONFIG = SmithingConfigs.load();
 
 	@Override
 	public void onInitialize() {
 		SmithingConfigs.init();
-		CONFIG = SmithingConfigs.load();
 		registerMaterials();
 		RecipeGen();
 	}

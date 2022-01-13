@@ -4,6 +4,7 @@ import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
 import gay.Aurum.smithingupgrades.SmithingUpgrades;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -163,27 +164,35 @@ public class MaterialConfig {
         if(mat == null){
              info = new MaterialInfo(name);
         }else{
-            Boolean isitem = obj.get("isItem").getAsBoolean();
-            info = new MaterialInfo(new Identifier(mat.getAsString()), isitem, name);
+            Boolean isItem = JsonHelper.getBoolean(obj,"isItem",true);
+            info = new MaterialInfo(new Identifier(mat.getAsString()), isItem, name,
+                    JsonHelper.getInt(obj, "matCount", 1));
         }
         JsonObject equip = obj.get("equipment").getAsJsonObject();
         for (Map.Entry<String,JsonElement> entry:equip.entrySet()) {
             info.addEquipment(entry.getKey(),new Identifier(entry.getValue().getAsString()));
         }
 
-        JsonObject inList = obj.get("inputList").getAsJsonObject();
-        JsonArray inputList = inList.get("list").getAsJsonArray();
-        info.setInList(new String[]{},inList.get("inclusive").getAsBoolean());
-        for (JsonElement entry:inputList) {
-            info.addToList(entry.getAsString(), false);
+        JsonElement inListEle = obj.get("inputList");
+        if(inListEle != null){
+            JsonObject inList = inListEle.getAsJsonObject();
+            JsonArray inputList = JsonHelper.getArray(inList,"list", new JsonArray());
+            info.setInList(new String[]{},inList.get("inclusive").getAsBoolean());
+            for (JsonElement entry:inputList) {
+                info.addToList(entry.getAsString(), false);
+            }
         }
 
-        JsonObject outList = obj.get("outputList").getAsJsonObject();
-        JsonArray outputList = outList.get("list").getAsJsonArray();
-        info.setOutList(new String[]{},outList.get("inclusive").getAsBoolean());
-        for (JsonElement entry:outputList) {
-            info.addToList(entry.getAsString(), true);
+        JsonElement outListEle = obj.get("outputList");
+        if(outListEle != null){
+            JsonObject outList = outListEle.getAsJsonObject();
+            JsonArray outputList = JsonHelper.getArray(outList,"list", new JsonArray());
+            info.setOutList(new String[]{},outList.get("inclusive").getAsBoolean());
+            for (JsonElement entry:outputList) {
+                info.addToList(entry.getAsString(), true);
+            }
         }
+
 
         return info;
     }
