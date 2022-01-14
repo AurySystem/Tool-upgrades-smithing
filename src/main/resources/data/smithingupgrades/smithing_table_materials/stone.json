@@ -1,0 +1,23 @@
+{
+  "name": "Stone",
+  "material": "minecraft:stone_tool_materials",
+  "isItem": false,
+  "equipment": {
+    "sword": "minecraft:stone_sword",
+    "pickaxe": "minecraft:stone_pickaxe",
+    "shovel": "minecraft:stone_shovel",
+    "axe": "minecraft:stone_axe",
+    "hoe": "minecraft:stone_hoe"
+  },
+  "inputList": {
+    "list": [],
+    "inclusive": false
+  },
+  "outputList": {
+    "list": [
+      "Wood",
+      "Iron"
+    ],
+    "inclusive": true
+  }
+}

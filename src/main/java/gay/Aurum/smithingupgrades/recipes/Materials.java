@@ -17,7 +17,7 @@ public class Materials {
     public static final Map<String, MaterialInfo> MATERIAL_MAP = Maps.newHashMap();
 
     public static void registerMaterials(){
-        MaterialConfig.load();
+        //MaterialConfig.load();
     }
 
     public static MaterialInfo addMaterial(String name, String upgrade, boolean isItem, int upgradeCount){

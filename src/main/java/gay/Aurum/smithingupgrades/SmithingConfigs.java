@@ -2,6 +2,7 @@ package gay.Aurum.smithingupgrades;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonWriter;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.JsonHelper;
 
 import java.io.BufferedReader;
@@ -15,12 +16,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * uhm what the fuck is this config deserializer
- * seriously this is some weird ass shit
+ * replaced the cursed deserializer
  */
 public class SmithingConfigs {
-    public static final Path CONFIG_FILE = FileSystems.getDefault().getPath("config","ToolSmithing.json");
-
+    public static final Path CONFIG_FILE = FabricLoader.getInstance().getConfigDir().resolve("ToolSmithing.json");
     private boolean requiresCustomClient;
     SmithingConfigs(){
         this.requiresCustomClient = false;
@@ -47,6 +46,7 @@ public class SmithingConfigs {
     }
 
     public static SmithingConfigs load(){
+
         if(!Files.exists(CONFIG_FILE)){
             save(new SmithingConfigs());
             return new SmithingConfigs();

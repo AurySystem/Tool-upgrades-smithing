@@ -1,0 +1,26 @@
+{
+  "name": "Netherite",
+  "material": "minecraft:netherite_ingot",
+  "isItem": true,
+  "equipment": {
+    "sword": "minecraft:netherite_sword",
+    "chestplate": "minecraft:netherite_chestplate",
+    "pickaxe": "minecraft:netherite_pickaxe",
+    "helmet": "minecraft:netherite_helmet",
+    "shovel": "minecraft:netherite_shovel",
+    "boots": "minecraft:netherite_boots",
+    "leggings": "minecraft:netherite_leggings",
+    "axe": "minecraft:netherite_axe",
+    "hoe": "minecraft:netherite_hoe"
+  },
+  "inputList": {
+    "list": [
+      "Diamond"
+    ],
+    "inclusive": true
+  },
+  "outputList": {
+    "list": [],
+    "inclusive": false
+  }
+}

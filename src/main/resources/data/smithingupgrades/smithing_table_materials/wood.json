@@ -1,0 +1,23 @@
+{
+  "name": "Wood",
+  "material": "minecraft:planks",
+  "isItem": false,
+  "equipment": {
+    "sword": "minecraft:wooden_sword",
+    "pickaxe": "minecraft:wooden_pickaxe",
+    "shovel": "minecraft:wooden_shovel",
+    "axe": "minecraft:wooden_axe",
+    "hoe": "minecraft:wooden_hoe"
+  },
+  "inputList": {
+    "list": [],
+    "inclusive": false
+  },
+  "outputList": {
+    "list": [
+      "Stone",
+      "Iron"
+    ],
+    "inclusive": true
+  }
+}
