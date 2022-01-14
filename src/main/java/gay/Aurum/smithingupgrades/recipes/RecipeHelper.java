@@ -18,7 +18,7 @@ public class RecipeHelper {
     }
 
 
-    private static JsonObject createSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem,int additionCount){
+    private static JsonObject createSmithingRecipe(Identifier input, Identifier upgrade, Identifier output, boolean isItem, int additionCount){
         JsonObject recipe = new JsonObject();
         recipe.addProperty("type","minecraft:smithing");
 
@@ -34,7 +34,7 @@ public class RecipeHelper {
         result.addProperty("item", output.toString());
         recipe.add("result", result);
 
-        recipe.addProperty("additioncount", 3);
+        recipe.addProperty("additioncount", additionCount);
 
         return recipe;
     }

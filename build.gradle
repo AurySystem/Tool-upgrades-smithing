@@ -1,8 +1,8 @@
 plugins {
-	id 'fabric-loom' version '0.10-SNAPSHOT'
+	id 'fabric-loom' version '0.7-SNAPSHOT'
 	id 'maven-publish'
 }
-def targetJavaVersion =17
+def targetJavaVersion = 1.8
 sourceCompatibility = JavaVersion.toVersion(targetJavaVersion)
 targetCompatibility = JavaVersion.toVersion(targetJavaVersion)
 
