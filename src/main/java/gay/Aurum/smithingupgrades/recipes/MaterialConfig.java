@@ -193,6 +193,13 @@ public class MaterialConfig {
             }
         }
 
+        JsonElement countsEle = obj.get("equipmentMatCount");
+        if(countsEle != null){
+            JsonObject counts = countsEle.getAsJsonObject();
+            for (Map.Entry<String,JsonElement> entry:counts.entrySet()) {
+                info.addEquipmentCount(entry.getKey(),entry.getValue().getAsInt());
+            }
+        }
 
         return info;
     }
@@ -206,33 +213,44 @@ public class MaterialConfig {
         }
         obj.addProperty("isItem", fig.isItemOrTag());
 
-        JsonObject equipment = new JsonObject();
-        Map<String, Identifier> tools = fig.getEquipment();
-        for (Map.Entry<String, Identifier> entry:tools.entrySet()) {
-            equipment.addProperty(entry.getKey(),entry.getValue().toString());
+        if(fig.getMatCount()>1){
+            obj.addProperty("matCount",fig.getMatCount());
         }
-        obj.add("equipment",equipment);
 
-        JsonObject inList = new JsonObject();
-        JsonArray inArray = new JsonArray();
+
         MaterialsList inner = fig.getInList();
-        for (String entry:inner.getList()) {
-            inArray.add(entry);
+        if(inner.isEmpty()){
+            JsonObject inList = new JsonObject();
+            JsonArray inArray = new JsonArray();
+            for (String entry:inner.getList()) {
+                inArray.add(entry);
+            }
+            inList.add("list",inArray);
+            inList.addProperty("inclusive",inner.isInclusiveList());
+            obj.add("inputList",inList);
         }
-        inList.add("list",inArray);
-        inList.addProperty("inclusive",inner.isInclusiveList());
-        obj.add("inputList",inList);
 
-        JsonObject outList = new JsonObject();
-        JsonArray outArray = new JsonArray();
         MaterialsList outer = fig.getOutList();
-        for (String entry:outer.getList()) {
-            outArray.add(entry);
+        if(!outer.isEmpty()){
+            JsonObject outList = new JsonObject();
+            JsonArray outArray = new JsonArray();
+            for (String entry:outer.getList()) {
+                outArray.add(entry);
+            }
+            outList.add("list",outArray);
+            outList.addProperty("inclusive",outer.isInclusiveList());
+            obj.add("outputList",outList);
         }
-        outList.add("list",outArray);
-        outList.addProperty("inclusive",outer.isInclusiveList());
-        obj.add("outputList",outList);
 
+        Map<String, Integer> toolMatCount = fig.getPerEquipmentCount();
+        if(!toolMatCount.isEmpty()){
+            JsonObject equipment = new JsonObject();
+            for (Map.Entry<String, Integer> entry:toolMatCount.entrySet()) {
+                equipment.addProperty(entry.getKey(),entry.getValue());
+            }
+            obj.add("equipmentMatCount",equipment);
+
+        }
         return obj;
     }
 }

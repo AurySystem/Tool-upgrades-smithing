@@ -11,7 +11,6 @@ public class SmithingUpgrades implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		SmithingConfigs.init();
 		registerMaterials();
 		RecipeGen();
 	}
