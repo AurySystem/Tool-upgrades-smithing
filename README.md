@@ -3,4 +3,4 @@ This mod generates recipes for the smithing table to change any tool to the spec
 
 ## License
 
-this mod is under the MIT lience, it's started from the the example mod as a base
+this mod is under the MIT licence, it's started from the example mod as a base

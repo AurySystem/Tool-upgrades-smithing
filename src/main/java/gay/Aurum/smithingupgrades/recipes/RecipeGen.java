@@ -1,19 +1,13 @@
 package gay.Aurum.smithingupgrades.recipes;
 
-import gay.Aurum.smithingupgrades.items.RegisterItems;
-
-import static gay.Aurum.smithingupgrades.items.RegisterItems.ITEM_MAP;
+import static gay.Aurum.smithingupgrades.SmithingUpgrades.CONFIG;
 import static gay.Aurum.smithingupgrades.recipes.Materials.MATERIAL_MAP;
 import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.addSmithingRecipe;
-import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.addShapelessRecipe;
 
 public class RecipeGen {
 
     public static void RecipeGen() {
 
-        for (RegisterItems.ItemMat itemMat : ITEM_MAP.values()) {
-            addShapelessRecipe(itemMat.getMatItem(), itemMat.getCount(), itemMat.getOutItem(), itemMat.isItemOrTag());
-        }
 
         for (String matId : MATERIAL_MAP.keySet()) {
             Materials.MaterialInfo mat = MATERIAL_MAP.get(matId);
@@ -26,7 +20,15 @@ public class RecipeGen {
                             if (mat.getOutList().isEmpty() || (mat.getOutList().isInclusiveList() == mat.getOutList().contains(matId2))) {
 
                                 if (mat2.hasItems() && mat2.getEquipment().get(type) != null) {
-                                    addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag());
+                                    if(CONFIG.getRequiresCustomClient()){
+                                        if(!mat2.getPerEquipmentCount().isEmpty()){
+                                            addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(), mat2.getPerEquipmentCount().get(type));
+                                        }else {
+                                            addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(), mat2.getMatCount());
+                                        }
+                                    }else {
+                                        addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(),1);
+                                    }
 
                                 }
                             }
