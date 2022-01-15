@@ -43,6 +43,11 @@ public class SmithingRecipeMixin implements SmithingCountInterface {
         cir.setReturnValue(this.base.test(inventory.getStack(0)) && this.addition.test(inventory.getStack(1)) && (inventory.getStack(1).getCount() >= this.additionCount ));
     }
 
+    @Override
+    public Ingredient getAddition() {
+        return this.addition;
+    }
+
     @Override @Unique
     public int getAdditionCount() {
         return this.additionCount;

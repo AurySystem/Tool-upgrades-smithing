@@ -1,6 +1,5 @@
 package gay.Aurum.smithingupgrades.recipes;
 
-import static gay.Aurum.smithingupgrades.SmithingUpgrades.CONFIG;
 import static gay.Aurum.smithingupgrades.recipes.Materials.MATERIAL_MAP;
 import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.addSmithingRecipe;
 
@@ -18,15 +17,11 @@ public class RecipeGen {
                             if (mat.getOutList().isEmpty() || (mat.getOutList().isInclusiveList() == mat.getOutList().contains(matId2))) {
 
                                 if (mat2.hasItems() && mat2.getEquipment().get(type) != null) {
-                                    if(CONFIG.getRequiresCustomClient()){
-                                        if(!mat2.getPerEquipmentCount().isEmpty()){
+                                    if(!mat2.getPerEquipmentCount().isEmpty() && mat2.getPerEquipmentCount().get(type) != null){
                                             addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(), mat2.getPerEquipmentCount().get(type));
                                         }else {
                                             addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(), mat2.getMatCount());
                                         }
-                                    }else {
-                                        addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(),1);
-                                    }
                                 }
                             }
                         }

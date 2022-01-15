@@ -1,6 +1,5 @@
 package gay.Aurum.smithingupgrades.mixin;
 
-import gay.Aurum.smithingupgrades.duckinterfaces.SmithingCountInterface;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.SmithingRecipe;
@@ -27,7 +26,7 @@ public abstract class SmithingScreenMixin extends ForgingScreenHandler{
     private int hackTheStack(int slot) {
         ItemStack itemStack = this.input.getStack(slot);
         itemStack.increment(1);
-        itemStack.decrement( ((SmithingCountInterface) currentRecipe).getAdditionCount() );
+        itemStack.decrement( ((AdditionAccessor) currentRecipe).getAddition().getMatchingStacks()[0].getCount() );
         this.input.setStack(slot, itemStack);
         return slot;
     }
