@@ -76,6 +76,11 @@ public class Materials {
             this.noItems = false;
         }
 
+        public void clearMatItem(){
+            this.isItem = false;
+            this.noItems = true;
+        }
+
         public int getMatCount(){
             return this.matCount;
         }

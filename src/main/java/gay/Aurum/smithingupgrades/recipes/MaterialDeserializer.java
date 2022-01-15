@@ -17,7 +17,11 @@ public class MaterialDeserializer {
         Boolean isItem = JsonHelper.getBoolean(obj, "isItem", true);
 
         if(mat != null && mat.isJsonPrimitive()){
-            info.setMatItem(new Identifier(mat.getAsString()), isItem);
+            if (mat.getAsString().isEmpty()){
+                info.clearMatItem();
+            }else {
+                info.setMatItem(new Identifier(mat.getAsString()), isItem);
+            }
         }
         info.setMatCount(JsonHelper.getInt(obj, "matCount", 1));
 
