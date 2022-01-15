@@ -7,8 +7,6 @@ import static gay.Aurum.smithingupgrades.recipes.RecipeHelper.addSmithingRecipe;
 public class RecipeGen {
 
     public static void RecipeGen() {
-
-
         for (String matId : MATERIAL_MAP.keySet()) {
             Materials.MaterialInfo mat = MATERIAL_MAP.get(matId);
 
@@ -29,14 +27,13 @@ public class RecipeGen {
                                     }else {
                                         addSmithingRecipe(mat.getEquipment().get(type), mat2.getMatItem(), mat2.getEquipment().get(type), mat2.isItemOrTag(),1);
                                     }
-
                                 }
                             }
                         }
                     }
                 }
-
             }
+
         }
     }
 }

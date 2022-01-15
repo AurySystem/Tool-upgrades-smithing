@@ -1,5 +1,4 @@
 {
-  "name": "Gold",
   "material": "minecraft:gold_block",
   "isItem": true,
   "equipment": {

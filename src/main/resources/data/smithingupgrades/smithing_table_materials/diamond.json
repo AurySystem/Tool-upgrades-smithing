@@ -1,5 +1,4 @@
 {
-  "name": "Diamond",
   "material": "minecraft:diamond_block",
   "isItem": true,
   "equipment": {
@@ -16,13 +15,13 @@
   },
   "inputList": {
     "list": [
-      "Wood"
+      "wood"
     ],
     "inclusive": false
   },
   "outputList": {
     "list": [
-      "Netherite"
+      "netherite"
     ],
     "inclusive": false
   }

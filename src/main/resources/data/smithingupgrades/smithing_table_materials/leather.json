@@ -1,5 +1,4 @@
 {
-  "name": "Leather",
   "material": "minecraft:leather",
   "isItem": true,
   "equipment": {
@@ -15,7 +14,7 @@
   },
   "outputList": {
     "list": [
-      "Iron"
+      "iron"
     ],
     "inclusive": true
   }

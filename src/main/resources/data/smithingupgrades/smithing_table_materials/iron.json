@@ -1,5 +1,4 @@
 {
-  "name": "Iron",
   "material": "minecraft:iron_block",
   "isItem": true,
   "equipment": {

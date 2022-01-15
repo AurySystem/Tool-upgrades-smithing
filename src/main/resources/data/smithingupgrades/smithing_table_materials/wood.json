@@ -1,5 +1,4 @@
 {
-  "name": "Wood",
   "material": "minecraft:planks",
   "isItem": false,
   "equipment": {
@@ -15,8 +14,8 @@
   },
   "outputList": {
     "list": [
-      "Stone",
-      "Iron"
+      "stone",
+      "iron"
     ],
     "inclusive": true
   }

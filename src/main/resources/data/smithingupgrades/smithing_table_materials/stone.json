@@ -1,5 +1,4 @@
 {
-  "name": "Stone",
   "material": "minecraft:stone_tool_materials",
   "isItem": false,
   "equipment": {

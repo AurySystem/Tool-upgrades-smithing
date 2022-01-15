@@ -1,5 +1,4 @@
 {
-  "name": "Netherite",
   "material": "minecraft:netherite_ingot",
   "isItem": true,
   "equipment": {
@@ -15,7 +14,7 @@
   },
   "inputList": {
     "list": [
-      "Diamond"
+      "diamond"
     ],
     "inclusive": true
   },

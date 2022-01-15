@@ -8,12 +8,9 @@ import net.minecraft.util.JsonHelper;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * replaced the cursed deserializer
@@ -41,7 +38,7 @@ public class SmithingConfigs {
             JsonWriter writer = gson.newJsonWriter(config);
             gson.toJson(jsn,writer);
         } catch (IOException e) {
-            SmithingUpgrades.logger(e.toString()+" Error saving config");
+            SmithingUpgrades.LOGGER(e.toString()+" Error saving config");
         }
     }
 
@@ -59,7 +56,7 @@ public class SmithingConfigs {
             save(temp);
             return temp;
         } catch (IOException e) {
-            SmithingUpgrades.logger(e.toString()+" Error loading config");
+            SmithingUpgrades.LOGGER(e.toString()+" Error loading config");
             return new SmithingConfigs();
         }
     }
