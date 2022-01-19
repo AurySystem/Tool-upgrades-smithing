@@ -1,0 +1,11 @@
+{
+  "material": "minecraft:chain", 
+  "isItem": true, 
+  "equipment": { 
+    "chestplate": "minecraft:chainmail_chestplate",
+    "helmet": "minecraft:chainmail_helmet",
+    "leggings": "minecraft:chainmail_leggings",
+    "boots": "minecraft:chainmail_boots"
+  },
+  "matCount": 1
+}

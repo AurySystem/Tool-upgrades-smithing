@@ -1,0 +1,17 @@
+{
+  "material": "minecraft:iron_ingot", 
+  "isItem": true, 
+  "equipment": { 
+    "sword": "minecraft:iron_sword",
+    "chestplate": "minecraft:iron_chestplate",
+    "pickaxe": "minecraft:iron_pickaxe",
+    "helmet": "minecraft:iron_helmet",
+    "shovel": "minecraft:iron_shovel",
+    "boots": "minecraft:iron_boots",
+    "horsearmor": "minecraft:iron_horse_armor",
+    "leggings": "minecraft:iron_leggings",
+    "axe": "minecraft:iron_axe",
+    "hoe": "minecraft:iron_hoe"
+  },
+  "matCount": 4
+}

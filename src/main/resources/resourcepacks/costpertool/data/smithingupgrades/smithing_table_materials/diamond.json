@@ -1,0 +1,41 @@
+{
+  "material": "minecraft:diamond",
+  "isItem": true,
+  "equipment": {
+    "sword": "minecraft:diamond_sword",
+    "chestplate": "minecraft:diamond_chestplate",
+    "pickaxe": "minecraft:diamond_pickaxe",
+    "helmet": "minecraft:diamond_helmet",
+    "shovel": "minecraft:diamond_shovel",
+    "boots": "minecraft:diamond_boots",
+    "horsearmor": "minecraft:diamond_horse_armor",
+    "leggings": "minecraft:diamond_leggings",
+    "axe": "minecraft:diamond_axe",
+    "hoe": "minecraft:diamond_hoe"
+  },
+  "inputList": {
+    "list": [
+      "wood"
+    ],
+    "inclusive": false
+  },
+  "outputList": {
+    "list": [
+      "netherite"
+    ],
+    "inclusive": false
+  },
+  "matCount": 3,
+  "equipmentMatCount": { 
+    "sword": 2,
+    "pickaxe": 3,
+    "axe": 3,
+    "hoe": 2,
+    "shovel": 1,
+    "helmet": 5,
+    "chestplate": 8,
+    "leggings": 7,
+    "boots": 4,
+    "horsearmor": 6
+  }
+}

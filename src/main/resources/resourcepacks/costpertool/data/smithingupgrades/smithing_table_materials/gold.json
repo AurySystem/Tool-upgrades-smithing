@@ -1,0 +1,29 @@
+{
+  "material": "minecraft:gold_ingot",
+  "isItem": true,
+  "equipment": {
+    "sword": "minecraft:golden_sword",
+    "chestplate": "minecraft:golden_chestplate",
+    "pickaxe": "minecraft:golden_pickaxe",
+    "helmet": "minecraft:golden_helmet",
+    "shovel": "minecraft:golden_shovel",
+    "boots": "minecraft:golden_boots",
+    "horsearmor": "minecraft:golden_horse_armor",
+    "leggings": "minecraft:golden_leggings",
+    "axe": "minecraft:golden_axe",
+    "hoe": "minecraft:golden_hoe"
+  },
+  "matCount": 3,
+  "equipmentMatCount": { 
+    "sword": 2,
+    "pickaxe": 3,
+    "axe": 3,
+    "hoe": 2,
+    "shovel": 1,
+    "helmet": 5,
+    "chestplate": 8,
+    "leggings": 7,
+    "boots": 4,
+    "horsearmor": 6
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "material": "minecraft:leather",
+  "isItem": true,
+  "equipment": {
+    "chestplate": "minecraft:leather_chestplate",
+    "helmet": "minecraft:leather_helmet",
+    "boots": "minecraft:leather_boots",
+    "horsearmor": "minecraft:leather_horse_armor",
+    "leggings": "minecraft:leather_leggings"
+  },
+  "inputList": {
+    "list": [],
+    "inclusive": false
+  },
+  "outputList": {
+    "list": [
+      "iron",
+      "chains"
+    ],
+    "inclusive": true
+  }
+}

@@ -19,5 +19,12 @@
       "iron"
     ],
     "inclusive": true
+  },
+  "equipmentMatCount": { 
+    "sword": 2,
+    "pickaxe": 3,
+    "axe": 3,
+    "hoe": 2,
+    "shovel": 1
   }
 }
